@@ -8,7 +8,7 @@ on:
 
 env:
   NODE_VERSION: '20'
-  APP_NAME: 'spacial-project'
+  APP_NAME: 'wa-gs1-2026-spacial-project'
   RESOURCE_GROUP: 'rg-gs1-2026'
 
 jobs:
