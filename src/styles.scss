@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-0: #060b14;
+  --bg-1: #0a1628;
+  --bg-2: #0f1f3d;
+  --bg-3: #162447;
+
+  --cyan: #00d4ff;
+  --cyan-dim: #0099bb;
+  --green: #00ff9d;
+  --green-dim: #00b870;
+  --orange: #ff7b2f;
+  --red: #ff3d5a;
+  --violet: #7c3aed;
+  --violet-light: #a78bfa;
+
+  --text-primary: #e8f4fd;
+  --text-secondary: #8ba9c8;
+  --text-muted: #4a6b8a;
+
+  --border: rgba(0, 212, 255, 0.12);
+  --border-hover: rgba(0, 212, 255, 0.35);
+
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-0);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
