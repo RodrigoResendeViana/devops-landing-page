@@ -11,13 +11,6 @@ export class App {
 
   features = [
     {
-      icon: '🤖',
-      name: 'Predição de Risco com IA',
-      description: 'Modelos de machine learning treinados com dados da NASA FIRMS analisam temperatura de superfície, índice de vegetação (NDVI) e umidade para calcular o risco de queimada — alto, médio ou baixo — com explicabilidade via SHAP.',
-      color: 'violet',
-      tech: ['Python', 'XGBoost', 'Random Forest', 'SHAP']
-    },
-    {
       icon: '🔄',
       name: 'Ingestão de Dados em Tempo Real',
       description: 'Pipeline automatizado que coleta focos de incêndio da API da NASA FIRMS diariamente, normaliza os dados e os armazena em banco relacional para consultas analíticas por estado, bioma e período.',
@@ -25,9 +18,16 @@ export class App {
       tech: ['Apache Airflow', 'Oracle', 'SQL', 'NASA FIRMS API']
     },
     {
+      icon: '🤖',
+      name: 'Predição de Risco com IA',
+      description: 'Modelos de machine learning analisam temperatura de superfície, índice de vegetação (NDVI) e umidade para calcular o risco de queimada em cada região. O modelo também indica quais variáveis mais influenciaram cada previsão, tornando o resultado auditável.',
+      color: 'violet',
+      tech: ['Python', 'XGBoost', 'Random Forest', 'SHAP']
+    },
+    {
       icon: '👁️',
       name: 'Classificação de Imagens Satelitais',
-      description: 'Redes neurais convolucionais identificam o tipo de cobertura em imagens do Sentinel-2: vegetação saudável, área queimada, desmatamento recente ou região inundada — com precisão superior a 90%.',
+      description: 'Redes neurais convolucionais analisam imagens do satélite Sentinel-2 pixel a pixel e classificam cada área em uma das categorias: vegetação saudável, região queimada, desmatamento recente ou área inundada. Isso permite mapear o estado atual do território de forma visual e contínua.',
       color: 'green',
       tech: ['TensorFlow', 'CNN', 'Sentinel-2', 'EuroSAT']
     },
@@ -40,15 +40,15 @@ export class App {
     },
     {
       icon: '☁️',
-      name: 'Infraestrutura Cloud com CI/CD',
-      description: 'A plataforma roda no Azure App Service com deploy contínuo a cada push na branch principal. Credenciais armazenadas no Key Vault e monitoramento de performance pelo Application Insights.',
+      name: 'Ambiente em Nuvem',
+      description: 'A plataforma opera inteiramente na nuvem Azure, o que garante disponibilidade contínua, escalabilidade automática conforme a demanda e acesso de qualquer lugar. Atualizações são publicadas automaticamente a cada novo deploy, sem downtime.',
       color: 'cyan',
       tech: ['Azure', 'GitHub Actions', 'Key Vault', 'Application Insights']
     },
     {
       icon: '🛸',
-      name: 'Coleta Física — Braço Orbital',
-      description: 'Protótipo de garra para nanossatélites capaz de coletar detritos em órbita. Controlado via serial com Arduino, dois servos e LED de status. Modelagem 3D paramétrica em OpenSCAD.',
+      name: 'Braço Auxiliar Orbital',
+      description: 'Protótipo de braço mecânico embarcado em nanossatélites para capturar e remover detritos espaciais próximos a pontos frágeis da estrutura orbital — prevenindo colisões que poderiam comprometer missões ativas. Controlado via serial com Arduino e dois servomotores, com LED de status e modelagem 3D paramétrica.',
       color: 'violet',
       tech: ['Arduino', 'Servo Motors', 'OpenSCAD', 'C++']
     }
@@ -61,9 +61,9 @@ export class App {
   ];
 
   stats = [
-    { value: '220M', label: 'km² monitorados', icon: '🛰️' },
+    { value: 'NASA', label: 'FIRMS + INPE como fontes', icon: '🛰️' },
     { value: '24/7', label: 'monitoramento contínuo', icon: '⏱️' },
-    { value: '>90%', label: 'precisão do modelo', icon: '🎯' },
-    { value: '<5min', label: 'latência de alerta', icon: '⚡' }
+    { value: 'Azure', label: 'infraestrutura em nuvem', icon: '☁️' },
+    { value: 'Real-time', label: 'alertas automáticos', icon: '⚡' }
   ];
 }
