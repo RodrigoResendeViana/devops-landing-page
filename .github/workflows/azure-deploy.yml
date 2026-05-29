@@ -47,7 +47,7 @@ jobs:
     needs: build
     environment:
       name: production
-      url: https://spacial-project-boayd2bphngva7f5.eastus-01.azurewebsites.net
+      url: https://wa-gs1-2026-spacial-project-c4h9aqbpb5fsdqgm.eastus-01.azurewebsites.net
 
     steps:
       - name: Download build artifact
@@ -67,6 +67,15 @@ jobs:
               "tenantId": "${{ secrets.AZURE_TENANT_ID }}"
             }
 
+      # Garante que o startup command está correto antes de cada deploy
+      # Runtime Node.js no Azure precisa de um comando para servir arquivos estáticos
+      - name: Configurar startup command (SPA estático)
+        run: |
+          az webapp config set \
+            --name ${{ env.APP_NAME }} \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --startup-file "pm2 serve /home/site/wwwroot 8080 --no-daemon --spa"
+
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
@@ -74,8 +83,6 @@ jobs:
           resource-group-name: ${{ env.RESOURCE_GROUP }}
           package: ./dist
 
-      # Necessário para App Services do tipo Container:
-      # o container precisa ser reiniciado para servir os novos arquivos
       - name: Restart App Service
         run: |
           az webapp restart \
